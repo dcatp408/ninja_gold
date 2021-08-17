@@ -1,0 +1,36 @@
+.btn {
+    background-color: turquoise;
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px #000;
+    font-size: 1rem;
+    margin: 10px 10px;
+}
+
+.row1, .row2{
+    display: flex;
+}
+
+.box{
+    flex: 1;
+    border: 2px solid black;
+    margin: 5px 10px;
+}
+
+.activities{
+    border: 2px solid black;;
+    height: 300px;
+    width: 1020px;
+    margin: 5px 10px;
+    overflow: auto;
+}
+
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>Ninja Gold</title>
+</head>
+
+<body>
+    <div class="row1">
+        <label for="goldNum">Your Gold, </label>
+        <p>{{session['gold']}}</p>
+    </div>
+
+    <div class="row2">
+        <div class="farm box">
+            <h3>Farm</h3>
+            <p>(earn 10- 20 gold)</p>
+            <form action="/process_money" method="post">
+                <input class="btn" type="submit" value="findGold" />
+                <input type="hidden" name="building" value="farm" />
+            </form>
+
+        </div>
+
+        <div class="cave box">
+            <h3>Cave</h3>
+            <p>(earn 5- 10 gold)</p>
+            <form action="/process_money" method="post">
+                <input class="btn" type="submit" value="findGold" />
+                <input type="hidden" name="building" value="cave" />
+            </form>
+        </div>
+
+        <div class="house box">
+            <h3>House</h3>
+            <p>(earn 2-5 gold)</p>
+            <form action="/process_money" method="post">
+                <input class="btn" type="submit" value="findGold" />
+                <input type="hidden" name="building" value="house" />
+            </form>
+        </div>
+
+        <div class="casino box">
+            <h3>Casino</h3>
+            <p>(earn 0-50 gold)</p>
+            <form action="/process_money" method="post">
+                <input class="btn" type="submit" value="findGold" />
+                <input type="hidden" name="building" value="casino" />
+            </form>
+        </div>
+    </div>
+
+    <div class="row3">
+        <label>Activities</label><br>
+        <div class="activities">
+            {% for message in session["message_list"]|reverse %}
+            {{message | safe}}
+            {% endfor %}
+        </div>
+    </div>
+
+    <form class="row4" action="/reset" method="post">
+        <input class="btn" type="submit" value="reset">
+    </form>
+
+
+
+</body>
+
+</html>
